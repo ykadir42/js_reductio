@@ -8,7 +8,8 @@ var medianAge = function() {
     var median = false;
     var medianNum = use.map(function(obj) {return obj['total'];}).reduce(function (a,b){return a+b;})/2;
     var total = 0;
-    return use.reduce(function (a,b){return !median && total + b['total'] > medianNum ? function(){median = !median; return b ['age'];} : total += b ['total']});                                                                  
+    var ret = function(b){median = !median; return b ['age'];};
+    return use.reduce(function (a,b){return total + b['total'] > medianNum ? ret(b) : (median ? a : total += b ['total'])});                                                                  
 }
 var numMinors = function() {
     return use.filter(function(obj) {return obj.age < 18;}).map(function(n){return n.total;}).reduce (function(a,b){return a+b;});
