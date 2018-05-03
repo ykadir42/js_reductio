@@ -1,1 +1,7 @@
 <script src="population.js"></script>
+This is a page that displays info for the population of the US in 1990. The percent female is <span id="female"></span>, the median age is <span id="age"></span>, and the number of minors is <span id="minor"></span>.
+<script type="text/javascript">
+    document.getElementById('female').innerHTML=totalPercentFemale();
+    document.getElementById('age').innerHTML=medianAge();
+    document.getElementById('minor').innerHTML=numMinors();
+</script>
